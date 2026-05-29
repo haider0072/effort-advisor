@@ -1,0 +1,17 @@
+{
+  "name": "haider-plugins",
+  "owner": {
+    "name": "Haider Ali Khan"
+  },
+  "plugins": [
+    {
+      "name": "effort-advisor",
+      "source": "./plugins/effort-advisor",
+      "description": "Assesses task complexity and recommends the right Claude effort level (low/medium/high/xhigh/max) before every substantive task. Accuracy-biased: rounds up when unsure.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Haider Ali Khan"
+      }
+    }
+  ]
+}
