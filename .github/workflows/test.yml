@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  hook:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests (sh)
+        run: sh tests/run-tests.sh
+      - name: Tests (dash)
+        if: runner.os == 'Linux'
+        run: HOOK_SHELL=dash sh tests/run-tests.sh

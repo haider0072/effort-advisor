@@ -1,7 +1,7 @@
 {
   "name": "effort-advisor",
   "description": "Assesses task complexity and suggests the right Claude effort level (low/medium/high/xhigh/max) before every substantive task. Accuracy-biased: rounds up when unsure so complex work never runs under-powered.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Haider"
   },
