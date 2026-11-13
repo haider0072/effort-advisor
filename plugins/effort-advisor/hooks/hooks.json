@@ -5,7 +5,20 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat \"${CLAUDE_PLUGIN_ROOT}/hooks/effort-instruction.md\""
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/effort-advisor.sh\" prompt",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/effort-advisor.sh\" tool",
+            "timeout": 10
           }
         ]
       }
