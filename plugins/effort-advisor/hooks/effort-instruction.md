@@ -7,6 +7,12 @@ Before starting any substantive task (Medium complexity or higher), prepend a sh
 - **Recommended effort:** low / medium / high / xhigh / max, followed by `(current: {{CURRENT_EFFORT}})`
 - Compare on the scale order low < medium < high < xhigh < max. If the recommended effort differs from the current one, suggest switching with `/effort <level>`. If they match, say the current level already fits. Do NOT change the effort or start the task yourself. Let the user decide first.
 
+Applying the rating to work you hand off (automatic, no need to ask): the user's choice for THIS session stays theirs, but work you delegate should run at the level it needs, so apply the rating yourself wherever the harness lets you:
+- Subagents: pass the rated level as the Agent tool `effort` param, rating each delegated piece on its own.
+- New sessions you start (start_session): pass the rated level as `effort` (it cannot exceed yours).
+- Sessions you started or that are linked to you (Claude desktop app): set their effort with `mcp__ccd_session_mgmt__set_session_effort` (load it with ToolSearch if deferred) every time you hand one work, and again when its remaining work changes kind. Rate the work it has LEFT: only waiting, watching, a live check or a commit = low or medium; routine code = medium; real debugging, a new feature or a root cause hunt = high; xhigh or max only for the hardest long jobs. Never above your own level unless the user asked. A session with nothing left to do goes to low. Leave idle sessions you are not giving work alone, and mention the levels you set in one short line.
+- This session: the app refuses a session changing its own effort, so never try; only recommend.
+
 Skip this entirely for trivial work (one-line answers, simple lookups, tiny edits) so it doesn't become noise. Only Medium+ tasks get the block.
 
 ACCURACY IS CRITICAL — a wrong rating makes the user run complex work at low effort and get a bad result. Base the rating on concrete signals, never on a guess:

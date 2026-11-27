@@ -13,6 +13,8 @@ Recommended effort: xhigh (current: high)  →  /effort xhigh
 
 Then it waits for you to decide. Trivial stuff (one-liners, quick lookups, tiny edits) is skipped so it never becomes noise.
 
+Work Claude hands off runs at the level it needs, without asking: subagents get the rated level as their `effort`, new sessions it starts get it too, and in the Claude desktop app the sessions it started or is linked to are re-rated with `set_session_effort` whenever their remaining work changes (a session that only waits drops to low, one that starts debugging goes up). Your own session's level stays your choice.
+
 It's **accuracy-biased**: when the complexity is unclear, it rounds *up*. Under-rating is worse than over-rating — extra tokens cost far less than a wrong result.
 
 ## How it works
